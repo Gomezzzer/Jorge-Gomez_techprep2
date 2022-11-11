@@ -16,9 +16,10 @@ const api = {
     fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
       .then(weather => {
         return weather.json();
-      }).then(displayResults);
+        }).then(displayResults);
   }
-  
+
+
   function displayResults (weather) {
     let city = document.querySelector('.location .city');
     city.innerText = `${weather.name}, ${weather.sys.country}`;
@@ -36,6 +37,7 @@ const api = {
     let hilow = document.querySelector('.hi-low');
     hilow.innerText = `${Math.round(weather.main.temp_min)}°c / ${Math.round(weather.main.temp_max)}°c`;
   }
+ 
   
   function dateBuilder (d) {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -48,3 +50,5 @@ const api = {
   
     return `${day} ${date} ${month} ${year}`;
   }
+
+ 
